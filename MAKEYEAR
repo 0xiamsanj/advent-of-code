@@ -1,0 +1,21 @@
+#!/bin/bash
+
+start_year=$1
+year_dir="$start_year"
+mkdir -p "$year_dir"
+
+# for (( day=1; day<=25; day++ ))
+# do
+#     formatted_day=$(printf "%02d" $day)
+#     day_dir="$year_dir/day_$formatted_day"
+#     mkdir -p "$day_dir"
+#     cp -r ./templates/template_cpp.cpp "$day_dir"/main.cpp
+# done
+while IFS= read -r line
+do
+    day_dir="$year_dir/$line"
+    mkdir -p "$day_dir"
+    cp -r ./templates/template_cpp.cpp "$day_dir"/main.cpp
+done < "$start_year".txt
+
+echo "Folders created for year $start_year, with days 1 through 25!"
