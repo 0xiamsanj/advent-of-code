@@ -49,6 +49,8 @@ else
     out=$(get_dir_names)
     echo "$out" >> "$YEAR".txt
     echo "" >> "$YEAR".txt
+    sed -i '/^$/d' "$YEAR".txt
+    mv "$YEAR".txt ../
 fi
 
 echo "Directory names for year $YEAR and day(s) $DAY have been written to $YEAR.txt"
