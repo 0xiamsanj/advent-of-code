@@ -2,6 +2,12 @@
 #include <string>
 #include <vector>
 
+int num_parser(std::string input){
+    int num;
+    std::istringstream stream(input);
+    while(stream >> num);
+    return num;
+}
 std::vector<int> integer_parser(std::string input){
     std::vector<int> int_arr;
 
@@ -15,6 +21,21 @@ std::vector<int> integer_parser(std::string input){
     return int_arr;
 }
 
+std::vector<int> integer_parser(std::vector<std::string> input){
+    std::vector<int> int_arr;
+
+    for(const auto str_num: input){
+
+        std::istringstream stream(str_num);
+        for(const auto& str:str_num){
+            int number;
+            while(stream >> number){
+                int_arr.push_back(number);
+            }
+        }
+    }
+    return int_arr;
+}
 std::vector<std::vector<int>> matrix_parser(std::vector<std::string> input_matrix ){
 
     std::vector<std::vector<int>> int_matrix;
