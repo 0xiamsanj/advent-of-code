@@ -14,8 +14,12 @@ mkdir -p "$year_dir"
 while IFS= read -r line
 do
     day_dir="$year_dir/$line"
+    input_dir="$day_dir/input"
     mkdir -p "$day_dir"
+    mkdir -p "$day_dir/helper"
+    mkdir -p "$input_dir"
     cp -r ./templates/template_cpp.cpp "$day_dir"/main.cpp
+
 done < "$start_year".txt
 
 echo "Folders created for year $start_year, with days 1 through 25!"
