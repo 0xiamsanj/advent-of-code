@@ -3,6 +3,7 @@
 #include <vector>
 #include <fstream>
 #include <string>
+#include <cstring>
 
 
 // Read input from the input files
@@ -23,6 +24,7 @@ std::vector<std::string> read_input(const std::string filename){
 // Part-1 code to be executed here
 void solve_part1(const std::vector<std::string>& input){
     std::cout << "--------- Part-1 Solution --------- " << std::endl;
+
 }
 
 // Part-2 code to be executed here
@@ -35,9 +37,14 @@ int main(int argc, char **argv){
 
     std::vector<std::string> input = read_input(input_file);
 
-    // Solving part-1
-    solve_part1(input);
+    if(!strcmp(argv[1],"part1")){
 
-    // Solving part-2
-    solve_part2(input);
+        // Solving part-1
+        solve_part1(input);
+
+    } else if (!strcmp(argv[1],"part2")){
+
+        // Solving part-2
+        solve_part2(input);
+    }
 }
